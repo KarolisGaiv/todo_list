@@ -2,13 +2,14 @@ const path = require('path');
 
 module.exports = {
   mode: "development",
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, "./src/index.js"),
+  stats: "errors-warnings",
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    contentBase: "./dist",
+    contentBase: path.resolve(__dirname, "./dist")
   },
   module: {
     rules: [
@@ -20,6 +21,14 @@ module.exports = {
         test: /\.(png|svg|jpg|gif)$/i,
         type: "asset/resource",
       },
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: ["babel-loader", "eslint-loader"]
+      },
     ]
-  }
+  },
+  resolve: {
+    extensions: ["*", ".js"]
+  },
 };

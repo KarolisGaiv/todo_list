@@ -1,13 +1,10 @@
-import "./styles.scss"
-import _ from "lodash"
+import './styles.scss';
 
-function component() {
-    const element = document.createElement('div');
+console.log('This is a test message');
+console.log('Another test message');
 
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    element.classList.add('hello');
+const testBtn = document.querySelector('.test-btn');
 
-    return element;
-}
-
-document.body.appendChild(component());
+testBtn.addEventListener('click', () => {
+  console.log('Clicked');
+});
