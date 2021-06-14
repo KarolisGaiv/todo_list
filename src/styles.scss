@@ -1,9 +1,16 @@
-$body-color: red;
-
-body {
-  color: $body-color;
+.header {
+  text-align: center;
 }
 
-h1 {
-  color: orange
+.content-wrapper {
+  display: flex;
+}
+
+.project-list-wrapper {
+  border: 2px solid green;
+}
+
+.task-list-wrapper {
+  border: 1px solid orange;
+  flex-grow: 2;
 }

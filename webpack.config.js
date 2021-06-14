@@ -1,15 +1,15 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
   mode: "development",
   entry: path.resolve(__dirname, "./src/index.js"),
   stats: "errors-warnings",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
   },
   devServer: {
-    contentBase: path.resolve(__dirname, "./dist")
+    contentBase: path.resolve(__dirname, "./dist"),
   },
   module: {
     rules: [
@@ -24,11 +24,11 @@ module.exports = {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: ["babel-loader", "eslint-loader"]
+        use: ["babel-loader"],
       },
-    ]
+    ],
   },
   resolve: {
-    extensions: ["*", ".js"]
+    extensions: ["*", ".js"],
   },
 };
