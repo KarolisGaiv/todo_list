@@ -1,12 +1,8 @@
-import "./styles.scss";
+import "./styles/styles.scss";
+import { openModal, closeModal } from "./ProjectForm";
 
-console.log("This is a test message");
-console.log("Another test message");
+const projectButton = document.querySelector(".project-btn");
+const closeProjectBtn = document.querySelector(".modal-close");
 
-const testBtn = document.querySelector(".test-btn");
-const btn = document.querySelector(".btn")
-
-testBtn.addEventListener("click", () => {
-  console.log("Clicked");
-});
-  
+projectButton.addEventListener("click", openModal);
+closeProjectBtn.addEventListener("click", closeModal);

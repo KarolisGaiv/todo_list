@@ -1,13 +1,18 @@
+@import "mixins.scss";
+
 .header {
   text-align: center;
 }
 
 .content-wrapper {
   display: flex;
+  height: 90vh;
 }
 
 .project-list-wrapper {
   border: 2px solid green;
+  @include flex-center-column;
+  min-width: 20%;
 }
 
 .task-list-wrapper {

@@ -5,18 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+    />
   </head>
   <body>
     <header class="header">
       <h1>Track Your Tasks!</h1>
     </header>
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo
+        exercitationem quos ut? Nam illo debitis vitae minus ea deserunt
+        officiis voluptatem? Iure iste nesciunt ipsam deserunt possimus
+        expedita, non deleniti.
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
     <div class="content-wrapper">
       <aside class="project-list-wrapper">
-        <ul>
-          <li>This will proj 1</li>
-          <li>This will proj 2</li>
-          <li>This will proj 3</li>
-        </ul>
+        <button class="button is-info is-rounded project-btn">
+          Add Project
+        </button>
       </aside>
       <section class="task-list-wrapper">
         <h2 class="header">Tasks to Do</h2>
