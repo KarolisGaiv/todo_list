@@ -1,16 +1,3 @@
-const cardText = document.querySelector(".content");
-// let savedProjects = [];
-
-// function getProjects() {
-//   keys = Object.keys(localStorage);
-
-//   for (var i = 0; i < keys.length; i++) {
-//     const projectName = keys[i];
-//     savedProjects.push(projectName);
-//     return savedProjects;
-//   }
-// }
-
 function createCard(projectName) {
   const projectList = document.querySelector(".project-list");
 
@@ -45,4 +32,4 @@ function createCard(projectName) {
   projectList.appendChild(projectCard);
 }
 
-export { createCard };
+export default createCard;

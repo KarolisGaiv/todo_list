@@ -1,4 +1,4 @@
-import { createCard } from "./ProjectCard";
+import createCard from "./ProjectCard";
 
 const projectModal = document.querySelector(".modal");
 const projectName = document.querySelector(".project-name-field");
