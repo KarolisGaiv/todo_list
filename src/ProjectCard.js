@@ -13,19 +13,16 @@ function createCard(projectName) {
   const cardFooter = document.createElement("footer");
   cardFooter.className = "card-footer";
   projectCard.appendChild(cardFooter);
-  const openBtn = document.createElement("a");
-  openBtn.setAttribute("href", "#");
-  openBtn.className = "card-footer-item";
+  const openBtn = document.createElement("button");
+  openBtn.className = "button open-project-btn";
   openBtn.innerText = "Open";
   cardFooter.appendChild(openBtn);
-  const completeBtn = document.createElement("a");
-  completeBtn.setAttribute("href", "#");
-  completeBtn.className = "card-footer-item";
+  const completeBtn = document.createElement("button");
+  completeBtn.className = "button";
   completeBtn.innerText = "Complete";
   cardFooter.appendChild(completeBtn);
-  const deleteBtn = document.createElement("a");
-  deleteBtn.setAttribute("href", "#");
-  deleteBtn.className = "card-footer-item";
+  const deleteBtn = document.createElement("button");
+  deleteBtn.className = "button";
   deleteBtn.innerText = "Delete";
   cardFooter.appendChild(deleteBtn);
 
