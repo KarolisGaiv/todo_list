@@ -1,4 +1,4 @@
-function createCard(projectName) {
+function createProjectCard(projectName) {
   const projectList = document.querySelector(".project-list");
 
   const projectCard = document.createElement("div");
@@ -29,4 +29,4 @@ function createCard(projectName) {
   projectList.appendChild(projectCard);
 }
 
-export default createCard;
+export default createProjectCard;

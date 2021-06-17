@@ -1,6 +1,6 @@
-import createCard from "./ProjectCard";
+import createProjectCard from "./ProjectCard";
 
-const projectModal = document.querySelector(".modal");
+const projectModal = document.querySelector(".project-form");
 const projectName = document.querySelector(".project-name-field");
 const projectDescription = document.querySelector(".project-description-field");
 
@@ -23,7 +23,7 @@ function saveToLocalStorage() {
   project.push(projectDescription.value);
 
   localStorage.setItem(projectName.value, JSON.stringify(project));
-  createCard(projectName.value);
+  createProjectCard(projectName.value);
   clearFields();
   closeModal();
 }

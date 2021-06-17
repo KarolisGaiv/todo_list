@@ -1,13 +1,13 @@
 import "./styles/styles.scss";
 import { openModal, closeModal, saveToLocalStorage } from "./ProjectForm";
-import createCard from "./ProjectCard";
+import createProjectCard from "./ProjectCard";
 import { populateDetailsContainer } from "./ProjectContent";
 
 function displaySavedProjects() {
   let projectKeys = Object.keys(localStorage);
   for (let i = 0; i < projectKeys.length; i++) {
     const projectName = projectKeys[i];
-    createCard(projectName);
+    createProjectCard(projectName);
   }
 }
 

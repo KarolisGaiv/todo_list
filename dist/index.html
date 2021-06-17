@@ -14,7 +14,7 @@
     <header class="header">
       <h1>Track Your Tasks!</h1>
     </header>
-    <div class="modal">
+    <div class="modal project-form">
       <div class="modal-background"></div>
       <div class="modal-content">
         <div class="field">
@@ -43,6 +43,51 @@
         />
       </div>
       <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <div class="modal task-form">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="field">
+          <label class="label has-text-info">Task Name</label>
+          <div class="control">
+            <input
+              class="input task-name-field"
+              type="text"
+              placeholder="e.g Go hiking"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-info">Description</label>
+          <div class="control">
+            <textarea
+              class="textarea task-description-field"
+              placeholder="e.g Not gonna tell"
+            ></textarea>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-info">Due Date</label>
+          <div class="control">
+            <input class="input task-dueDate-field" type="date" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-info">Priority</label>
+          <div class="control">
+            <input class="input task-priority-field" type="text" />
+          </div>
+        </div>
+        <input
+          type="submit"
+          class="button is-success is-light"
+          value="Create Task"
+        />
+      </div>
+      <button
+        class="modal-close is-large close-task-form"
+        aria-label="close"
+      ></button>
     </div>
     <div class="content-wrapper">
       <aside class="project-list-wrapper">

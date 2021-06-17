@@ -1,3 +1,5 @@
+import { openTaskForm, closeTaskForm } from "./TodoForm";
+
 let projectName;
 let projectDescription;
 
@@ -19,9 +21,19 @@ function createDetailsContainer(name, description) {
   projectDescription.className = "title is-4";
   projectDescription.innerText = description;
   detailsContainer.appendChild(projectDescription);
+  const addBtn = document.createElement("button");
+  addBtn.className = "button add-task-btn";
+  addBtn.innerText = "Add Task";
+  detailsContainer.appendChild(addBtn);
 
   const contentWrapper = document.querySelector(".project-content-wrapper");
   contentWrapper.appendChild(detailsContainer);
+
+  const addTaskBtn = document.querySelector(".add-task-btn");
+  addTaskBtn.addEventListener("click", openTaskForm);
+
+  const closeFormBtn = document.querySelector(".close-task-form");
+  closeFormBtn.addEventListener("click", closeTaskForm);
 }
 
 function populateDetailsContainer(e) {
