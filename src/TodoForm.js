@@ -1,4 +1,6 @@
 import Todo from "./Todo";
+import { createCard } from "./TodoCard";
+
 const taskForm = document.querySelector(".task-form");
 const closeFormBtn = document.querySelector(".close-task-form");
 const createTaskBtn = document.querySelector(".create-task");
@@ -26,6 +28,7 @@ function createTodo() {
     priority.value
   );
   newTask.saveTaskToProject();
+  createCard();
   resetForm();
   closeTaskForm();
 }

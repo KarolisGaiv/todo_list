@@ -27,7 +27,7 @@ function createDetailsContainer(name, description) {
   addBtn.innerText = "Add Task";
   detailsContainer.appendChild(addBtn);
 
-  const contentWrapper = document.querySelector(".project-content-wrapper");
+  const contentWrapper = document.querySelector(".project-details-wrapper");
   contentWrapper.appendChild(detailsContainer);
 
   const addTaskBtn = document.querySelector(".add-task-btn");
