@@ -6,15 +6,16 @@ let projectDescription;
 function getProjectData(e) {
   const projectKey = e.target.parentElement.previousSibling.innerText;
   const projectData = localStorage.getItem(projectKey);
-  projectName = JSON.parse(projectData)[0];
-  projectDescription = JSON.parse(projectData)[1];
+  projectName = JSON.parse(projectData).projectDetails.projectName;
+  projectDescription =
+    JSON.parse(projectData).projectDetails.projectDescription;
 }
 
 function createDetailsContainer(name, description) {
   const detailsContainer = document.createElement("div");
   detailsContainer.className = "box";
   const projectName = document.createElement("h3");
-  projectName.className = "title is-3";
+  projectName.className = "title is-3 project-name";
   projectName.innerText = name;
   detailsContainer.appendChild(projectName);
   const projectDescription = document.createElement("h4");

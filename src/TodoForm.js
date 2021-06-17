@@ -25,7 +25,7 @@ function createTodo() {
     dueDate.value,
     priority.value
   );
-  console.log(newTask);
+  newTask.saveTaskToProject();
   resetForm();
   closeTaskForm();
 }

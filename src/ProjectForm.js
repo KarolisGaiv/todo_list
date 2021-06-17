@@ -1,4 +1,5 @@
 import createProjectCard from "./ProjectCard";
+import Project from "./Project";
 
 const projectModal = document.querySelector(".project-form");
 const projectName = document.querySelector(".project-name-field");
@@ -18,11 +19,14 @@ function clearFields() {
 }
 
 function saveToLocalStorage() {
-  let project = [];
-  project.push(projectName.value);
-  project.push(projectDescription.value);
+  let project = new Project();
+  project.projectDetails.projectName = projectName.value;
+  project.projectDetails.projectDescription = projectDescription.value;
 
-  localStorage.setItem(projectName.value, JSON.stringify(project));
+  localStorage.setItem(
+    project.projectDetails.projectName,
+    JSON.stringify(project)
+  );
   createProjectCard(projectName.value);
   clearFields();
   closeModal();
