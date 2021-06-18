@@ -1,7 +1,9 @@
 import { openTaskForm } from "./TodoForm";
+import { createCard } from "./TodoCard";
 
 let projectName;
 let projectDescription;
+let projectTasks;
 
 function getProjectData(e) {
   const projectKey = e.target.parentElement.previousSibling.innerText;
@@ -9,6 +11,8 @@ function getProjectData(e) {
   projectName = JSON.parse(projectData).projectDetails.projectName;
   projectDescription =
     JSON.parse(projectData).projectDetails.projectDescription;
+  projectTasks = JSON.parse(projectData).projectTasks;
+  console.log(projectTasks);
 }
 
 function createDetailsContainer(name, description) {
@@ -34,9 +38,16 @@ function createDetailsContainer(name, description) {
   addTaskBtn.addEventListener("click", openTaskForm);
 }
 
+function displayProjectTasks() {
+  projectTasks.forEach((task) => {
+    createCard(task.taskTitle, task.taskDescription);
+  });
+}
+
 function populateDetailsContainer(e) {
   getProjectData(e);
   createDetailsContainer(projectName, projectDescription);
+  displayProjectTasks();
 }
 
 export { populateDetailsContainer };
