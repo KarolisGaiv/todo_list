@@ -2,6 +2,7 @@ const Project = (title, description) => {
   const projectDetails = {
     projectTitle: title,
     projectDescrption: description,
+    isComplete: false,
   };
   let projectTasks = [];
 

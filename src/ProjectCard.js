@@ -18,7 +18,7 @@ function createProjectCard(projectName) {
   openBtn.innerText = "Open";
   cardFooter.appendChild(openBtn);
   const completeBtn = document.createElement("button");
-  completeBtn.className = "button";
+  completeBtn.className = "button complete-proj-btn";
   completeBtn.innerText = "Complete";
   cardFooter.appendChild(completeBtn);
   const deleteBtn = document.createElement("button");
@@ -34,4 +34,13 @@ function deleteProject(e) {
   localStorage.removeItem(projId);
 }
 
-export { createProjectCard, deleteProject };
+function completeProject(e) {
+  const projId = e.target.parentElement.parentElement.firstChild.innerText;
+  e.target.parentElement.parentElement.firstChild.style.textDecoration =
+    "line-through";
+  const selectedProject = JSON.parse(localStorage.getItem(projId));
+  selectedProject.projectDetails.isComplete = true;
+  localStorage.setItem(projId, JSON.stringify(selectedProject));
+}
+
+export { createProjectCard, deleteProject, completeProject };
