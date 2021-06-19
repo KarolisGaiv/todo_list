@@ -1,4 +1,4 @@
-import createProjectCard from "./ProjectCard";
+import { createProjectCard } from "./ProjectCard";
 import Project from "./Project";
 
 const projectModal = document.querySelector(".project-form");

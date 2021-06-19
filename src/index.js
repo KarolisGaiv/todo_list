@@ -1,6 +1,6 @@
 import "./styles/styles.scss";
 import { openModal, closeModal, saveToLocalStorage } from "./ProjectForm";
-import createProjectCard from "./ProjectCard";
+import { createProjectCard, deleteProject } from "./ProjectCard";
 import { populateDetailsContainer } from "./ProjectContent";
 
 function displaySavedProjects() {
@@ -25,8 +25,19 @@ addProjectBtn.addEventListener("click", saveToLocalStorage);
 
 // Selectors related to project card buttons
 const openProjectBtns = document.querySelectorAll(".open-project-btn");
+const deleteProjectBtns = document.querySelectorAll(".delete-proj-btn");
 
 // Event handlers related to project card buttons
 openProjectBtns.forEach((button) => {
   button.addEventListener("click", populateDetailsContainer);
+});
+
+deleteProjectBtns.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    deleteProject(e);
+    const projectList = document.querySelector(".project-list");
+    // Reset project list container before updating after deleting project
+    projectList.innerHTML = "";
+    displaySavedProjects();
+  });
 });

@@ -22,11 +22,16 @@ function createProjectCard(projectName) {
   completeBtn.innerText = "Complete";
   cardFooter.appendChild(completeBtn);
   const deleteBtn = document.createElement("button");
-  deleteBtn.className = "button";
+  deleteBtn.className = "button delete-proj-btn";
   deleteBtn.innerText = "Delete";
   cardFooter.appendChild(deleteBtn);
 
   projectList.appendChild(projectCard);
 }
 
-export default createProjectCard;
+function deleteProject(e) {
+  const projId = e.target.parentElement.parentElement.firstChild.innerText;
+  localStorage.removeItem(projId);
+}
+
+export { createProjectCard, deleteProject };
