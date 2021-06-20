@@ -37,7 +37,7 @@ function resetForm() {
   title.value = "";
   description.value = "";
   dueDate.value = "";
-  priority.value = "false";
+  priority.value = "regular";
 }
 
 export { openTaskForm };

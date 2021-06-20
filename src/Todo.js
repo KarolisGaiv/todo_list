@@ -3,10 +3,17 @@ const Todo = (title, description, dueDate, priority) => {
   let taskDescription = description;
   let taskDueDate = dueDate;
   let taskPriority = priority;
+  let isComplete = false;
   const projectId = document.querySelector(".project-name").innerText;
 
   function saveTaskToProject() {
-    let task = { taskTitle, taskDescription, taskDueDate, taskPriority };
+    let task = {
+      taskTitle,
+      taskDescription,
+      taskDueDate,
+      taskPriority,
+      isComplete,
+    };
 
     const selectedProject = JSON.parse(localStorage.getItem(projectId));
     selectedProject.projectTasks.push(task);

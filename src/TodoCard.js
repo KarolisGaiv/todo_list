@@ -1,3 +1,5 @@
+import { doc } from "prettier";
+
 function createCard(title, description) {
   const card = document.createElement("div");
   card.className = "card";
@@ -30,7 +32,7 @@ function createCard(title, description) {
   cardFooter.className = "card-footer is-hidden task-card-footer";
   card.appendChild(cardFooter);
   const completeBtn = document.createElement("button");
-  completeBtn.className = "button";
+  completeBtn.className = "button complete-todo";
   completeBtn.innerText = "Complete";
   cardFooter.appendChild(completeBtn);
   const deleteBtn = document.createElement("button");
@@ -42,6 +44,12 @@ function createCard(title, description) {
   tasksContainer.appendChild(card);
 
   expandBtn.addEventListener("click", expandCard);
+
+  const completeBtns = document.querySelectorAll(".complete-todo");
+  // completeBtns.forEach((button) => {
+  //   button.addEventListener("click", completeTask);
+  // });
+  // completeBtn.addEventListener("click", completeTask);
 }
 
 function expandCard(e) {
@@ -50,5 +58,45 @@ function expandCard(e) {
   cardContent.classList.toggle("is-hidden");
   cardFooter.classList.toggle("is-hidden");
 }
+
+// function completeTask(e) {
+//   const projId = document.querySelector(".project-name").innerText;
+//   const projectData = JSON.parse(localStorage.getItem(projId));
+//   const taskName = e.target.parentElement.parentElement.firstChild.innerText;
+
+//   const taskIndex = projectData.projectTasks.findIndex(
+//     (task) => task.taskTitle === taskName
+//   );
+
+//   const isComplete =
+//     projectData.projectTasks[taskIndex].taskPriority === false ? true : false;
+
+//   // const taskPriority =
+//   //   projectData.projectTasks[taskIndex].taskPriority === "regular"
+//   //     ? "urgent"
+//   //     : "regular";
+
+//   const updatedTask = {
+//     ...projectData.projectTasks[taskIndex],
+//     isComplete,
+//   };
+
+//   console.log(updatedTask);
+
+//   const updatedProjectArray = [
+//     ...projectData.projectTasks.slice(0, taskIndex),
+//     updatedTask,
+//     ...projectData.projectTasks.slice(taskIndex + 1),
+//   ];
+
+//   // console.log(projectData.projectTasks);
+
+//   // console.log(updatedProjectArray);
+
+//   projectData.projectTasks = updatedProjectArray;
+
+//   // console.log(projectData.projectTasks);
+//   // localStorage.setItem(projId, JSON.stringify(projectData));
+// }
 
 export { createCard };
