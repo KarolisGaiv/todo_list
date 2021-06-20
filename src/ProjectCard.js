@@ -36,10 +36,11 @@ function deleteProject(e) {
 
 function completeProject(e) {
   const projId = e.target.parentElement.parentElement.firstChild.innerText;
+  const selectedProject = JSON.parse(localStorage.getItem(projId));
+  selectedProject.projectDetails.isComplete =
+    !selectedProject.projectDetails.isComplete;
   e.target.parentElement.parentElement.firstChild.style.textDecoration =
     "line-through";
-  const selectedProject = JSON.parse(localStorage.getItem(projId));
-  selectedProject.projectDetails.isComplete = true;
   localStorage.setItem(projId, JSON.stringify(selectedProject));
 }
 
