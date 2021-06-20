@@ -7,7 +7,7 @@ const createTaskBtn = document.querySelector(".create-task");
 const title = document.querySelector(".task-name-field");
 const description = document.querySelector(".task-description-field");
 const dueDate = document.querySelector(".task-dueDate-field");
-const priority = document.querySelector(".task-priority-field");
+const priority = document.querySelector(".task-priority");
 
 closeFormBtn.addEventListener("click", closeTaskForm);
 createTaskBtn.addEventListener("click", createTodo);
@@ -37,7 +37,7 @@ function resetForm() {
   title.value = "";
   description.value = "";
   dueDate.value = "";
-  priority.value = "";
+  priority.value = "false";
 }
 
 export { openTaskForm };
