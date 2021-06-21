@@ -6,8 +6,8 @@ function createProjectCard(projectName) {
   const cardContentWrapper = document.createElement("div");
   cardContentWrapper.className = "card-content";
   projectCard.appendChild(cardContentWrapper);
-  const cardContent = document.createElement("div");
-  cardContent.className = "content";
+  const cardContent = document.createElement("h4");
+  cardContent.className = "title is-4";
   cardContent.innerText = projectName;
   cardContentWrapper.appendChild(cardContent);
   const cardFooter = document.createElement("footer");

@@ -6,6 +6,9 @@ $_eton-blue: #87bba2;
 $_steel-teal: #55828b;
 $_deep-space: #3b6064;
 $_charcoal: #364958;
+$_amethyst-smoke: #9A94BC;
+$_tree-poppy: #FB8B24;
+$_amaranth: #EF2D56;
 
 body {
   background-color: $_tea-green;
@@ -32,4 +35,87 @@ body {
   border-radius: 10px;
   height: 100%;
   padding: 15px 0;
+}
+@import "mixins.scss";
+
+// Colors website https://coolors.co/c9e4ca-87bba2-55828b-3b6064-364958
+$_tea-green: #C9E4CA;
+$_eton-blue: #87bba2;
+$_steel-teal: #55828b;
+$_deep-space: #3b6064;
+$_charcoal: #364958;
+$_amethyst-smoke: #9A94BC;
+
+body {
+  background-color: $_tea-green;
+}
+
+.header {
+  text-align: center;
+}
+
+.content-wrapper {
+  height: 100vh;
+}
+
+.project-list-wrapper {
+  @include flex-center-column;
+  background-color: $_eton-blue;
+  border-radius: 10px;
+  height: 100%;
+  padding: 15px 0;
+}
+
+.task-list-wrapper {
+  background-color: $_steel-teal;
+  border-radius: 10px;
+  height: 100%;
+  padding: 15px 0;
+}
+
+.columns:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.card-content {
+  background-color: $_amethyst-smoke;
+}
+
+.card-footer {
+  background-color: $_amethyst-smoke;
+  border-top: 0;
+}
+
+.columns:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.card-content {
+  background-color: $_amethyst-smoke;
+}
+
+.card-footer {
+  background-color: $_amethyst-smoke;
+  border-top: 0;
+}
+
+.button {
+  border-color: transparent;
+
+  &.open-project-btn {
+    background-color: #04A777;
+  }
+
+  &.complete-proj-btn {
+    background-color: $_tree-poppy;
+  }
+
+  &.delete-proj-btn {
+    background-color: $_amaranth;
+  }
+
+}
+
+.project-details-header {
+  text-align: center;
 }
