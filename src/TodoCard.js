@@ -46,10 +46,10 @@ function createCard(title, description) {
   expandBtn.addEventListener("click", expandCard);
 
   const completeBtns = document.querySelectorAll(".complete-todo");
-  // completeBtns.forEach((button) => {
-  //   button.addEventListener("click", completeTask);
-  // });
-  // completeBtn.addEventListener("click", completeTask);
+  completeBtns.forEach((button) => {
+    button.addEventListener("click", completeTask);
+  });
+  completeBtn.addEventListener("click", completeTask);
 }
 
 function expandCard(e) {
@@ -59,44 +59,36 @@ function expandCard(e) {
   cardFooter.classList.toggle("is-hidden");
 }
 
-// function completeTask(e) {
-//   const projId = document.querySelector(".project-name").innerText;
-//   const projectData = JSON.parse(localStorage.getItem(projId));
-//   const taskName = e.target.parentElement.parentElement.firstChild.innerText;
+function completeTask(e) {
+  const projId = document.querySelector(".project-name").innerText;
+  const projectData = JSON.parse(localStorage.getItem(projId));
+  const taskName = e.target.parentElement.parentElement.firstChild.innerText;
+  const taskIndex = projectData.projectTasks.findIndex(
+    (task) => task.taskTitle === taskName
+  );
+  const currentTask = projectData.projectTasks[taskIndex]
 
-//   const taskIndex = projectData.projectTasks.findIndex(
-//     (task) => task.taskTitle === taskName
-//   );
+  const isComplete =
+    currentTask.isComplete === false ? true : false;
 
-//   const isComplete =
-//     projectData.projectTasks[taskIndex].taskPriority === false ? true : false;
+  // const taskPriority =
+  //   projectData.projectTasks[taskIndex].taskPriority === "regular"
+  //     ? "urgent"
+  //     : "regular";
 
-//   // const taskPriority =
-//   //   projectData.projectTasks[taskIndex].taskPriority === "regular"
-//   //     ? "urgent"
-//   //     : "regular";
+  const updatedTask = {
+    ...currentTask,
+    isComplete,
+  };
 
-//   const updatedTask = {
-//     ...projectData.projectTasks[taskIndex],
-//     isComplete,
-//   };
+  const updatedProjectArray = [
+    ...projectData.projectTasks.slice(0, taskIndex),
+    updatedTask,
+    ...projectData.projectTasks.slice(taskIndex + 1),
+  ];
 
-//   console.log(updatedTask);
-
-//   const updatedProjectArray = [
-//     ...projectData.projectTasks.slice(0, taskIndex),
-//     updatedTask,
-//     ...projectData.projectTasks.slice(taskIndex + 1),
-//   ];
-
-//   // console.log(projectData.projectTasks);
-
-//   // console.log(updatedProjectArray);
-
-//   projectData.projectTasks = updatedProjectArray;
-
-//   // console.log(projectData.projectTasks);
-//   // localStorage.setItem(projId, JSON.stringify(projectData));
-// }
+  projectData.projectTasks = updatedProjectArray;
+  localStorage.setItem(projId, JSON.stringify(projectData));
+}
 
 export { createCard };
