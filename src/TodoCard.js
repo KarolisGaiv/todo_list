@@ -1,5 +1,3 @@
-import { doc } from "prettier";
-
 function createCard(title, description) {
   const card = document.createElement("div");
   card.className = "card";
@@ -44,12 +42,8 @@ function createCard(title, description) {
   tasksContainer.appendChild(card);
 
   expandBtn.addEventListener("click", expandCard);
-
-  const completeBtns = document.querySelectorAll(".complete-todo");
-  completeBtns.forEach((button) => {
-    button.addEventListener("click", completeTask);
-  });
   completeBtn.addEventListener("click", completeTask);
+  deleteBtn.addEventListener("click", deleteTask)
 }
 
 function expandCard(e) {
@@ -90,5 +84,20 @@ function completeTask(e) {
   projectData.projectTasks = updatedProjectArray;
   localStorage.setItem(projId, JSON.stringify(projectData));
 }
+
+// function deleteTask(e) {
+//   const projId = document.querySelector(".project-name").innerText;
+//   const projectData = JSON.parse(localStorage.getItem(projId));
+//   const projectTasks = projectData.projectTasks
+//   const taskName = e.target.parentElement.parentElement.firstChild.innerText;
+//   const taskIndex = projectTasks.findIndex(
+//     (task) => task.taskTitle === taskName
+//   );
+
+//   // const updatedTaskArray = projectTasks.splice(taskIndex, 1)
+//   // const updatedTaskArray = projectTasks.length > 1 ? projectTasks.splice(taskIndex, 1) : projectTasks.length === 0
+//   projectData.projectTasks = updatedTaskArray
+//   localStorage.setItem(projId, JSON.stringify(projectData))
+// }
 
 export { createCard };
