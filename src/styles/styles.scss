@@ -12,6 +12,7 @@ $_amaranth: #EF2D56;
 $_lily: #C19AB7;
 $_eastern-blue: #1B9AAA;
 $_green-haze: #04A777;
+$_pine-glade: #D0CD94;
 
 body {
   background-color: $_tea-green;
@@ -38,19 +39,6 @@ body {
   border-radius: 10px;
   height: 100%;
   padding: 15px 0;
-}
-
-.columns:not(:last-child) {
-  margin-bottom: 0;
-}
-
-.card-content {
-  background-color: $_amethyst-smoke;
-}
-
-.card-footer {
-  background-color: $_amethyst-smoke;
-  border-top: 0;
 }
 
 .columns:not(:last-child) {
@@ -97,4 +85,12 @@ body {
 
 .project-tasks-wrapper {
   padding: 0 30%;
+}
+
+.todo-card {
+  margin: 5px;
+}
+
+.card-header {
+  background-color: $_pine-glade;
 }

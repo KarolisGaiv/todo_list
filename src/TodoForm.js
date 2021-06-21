@@ -28,7 +28,7 @@ function createTodo() {
     priority.value
   );
   newTask.saveTaskToProject();
-  createCard(title.value, description.value);
+  createCard(title.value, description.value, dueDate.value, priority.value);
   resetForm();
   closeTaskForm();
 }

@@ -17,6 +17,10 @@ function getProjectData(e) {
 
 function createDetailsContainer(name, description, dueDate) {
   const contentWrapper = document.querySelector(".project-details-wrapper");
+  // Reset container if project is already open
+  if(contentWrapper.innerHTML) {
+    contentWrapper.innerHTML = ""
+  }
   contentWrapper.classList.add("box");
   const projectName = document.createElement("h3");
   projectName.className = "title is-3 project-name";

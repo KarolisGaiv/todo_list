@@ -1,4 +1,4 @@
-function createCard(title, description) {
+function createCard(title, description, dueDate, priority) {
   const card = document.createElement("div");
   card.className = "card todo-card";
   const cardHeader = document.createElement("header");
@@ -23,9 +23,13 @@ function createCard(title, description) {
   cardContentWrapper.className = "card-content is-hidden task-card-content";
   card.appendChild(cardContentWrapper);
   const content = document.createElement("div");
-  content.className = "content";
+  content.className = "block";
   content.innerText = `Description: ${description}`;
   cardContentWrapper.appendChild(content);
+  const priorityInfo = document.createElement("div")
+  priorityInfo.className = "block"
+  priorityInfo.innerText = `Priority: ${priority}`
+  cardContentWrapper.appendChild(priorityInfo)
   const cardFooter = document.createElement("footer");
   cardFooter.className = "card-footer is-hidden task-card-footer";
   card.appendChild(cardFooter);

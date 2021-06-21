@@ -1,6 +1,6 @@
-function createProjectCard(projectName) {
-  const projectList = document.querySelector(".project-list");
+import { populateDetailsContainer } from "./ProjectContent";
 
+function createProjectCard(projectName) {
   const projectCard = document.createElement("div");
   projectCard.className = "card";
   const cardContentWrapper = document.createElement("div");
@@ -26,7 +26,28 @@ function createProjectCard(projectName) {
   deleteBtn.innerText = "Delete";
   cardFooter.appendChild(deleteBtn);
 
+  const projectList = document.querySelector(".project-list");
   projectList.appendChild(projectCard);
+
+  openBtn.addEventListener("click", populateDetailsContainer)
+  deleteBtn.addEventListener("click", (e) => {
+    deleteProject(e);
+    const projectListContainer = document.querySelector(".project-list");
+//  Reset project list container before updating list when project is deleted
+    projectListContainer.innerHTML = "";
+    displaySavedProjects();
+  })
+  completeBtn.addEventListener("click", (e) => {
+    completeProject(e)
+  })
+}
+
+function displaySavedProjects() {
+  let projectKeys = Object.keys(localStorage);
+  for (let i = 0; i < projectKeys.length; i++) {
+    const projectName = projectKeys[i];
+    createProjectCard(projectName);
+  }
 }
 
 function deleteProject(e) {
@@ -44,4 +65,4 @@ function completeProject(e) {
   localStorage.setItem(projId, JSON.stringify(selectedProject));
 }
 
-export { createProjectCard, deleteProject, completeProject };
+export { createProjectCard, deleteProject, completeProject, displaySavedProjects };
