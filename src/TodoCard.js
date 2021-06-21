@@ -43,7 +43,7 @@ function createCard(title, description) {
 
   expandBtn.addEventListener("click", expandCard);
   completeBtn.addEventListener("click", completeTask);
-  deleteBtn.addEventListener("click", deleteTask)
+  // deleteBtn.addEventListener("click", deleteTask)
 }
 
 function expandCard(e) {

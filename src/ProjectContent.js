@@ -15,24 +15,24 @@ function getProjectData(e) {
   console.log(projectTasks);
 }
 
-function createDetailsContainer(name, description) {
-  const detailsContainer = document.createElement("div");
-  detailsContainer.className = "box";
+function createDetailsContainer(name, description, dueDate) {
+  const contentWrapper = document.querySelector(".project-details-wrapper");
+  contentWrapper.classList.add("box");
   const projectName = document.createElement("h3");
   projectName.className = "title is-3 project-name";
-  projectName.innerText = name;
-  detailsContainer.appendChild(projectName);
+  projectName.innerText = `Project Name: ${name}`;
+  contentWrapper.appendChild(projectName);
   const projectDescription = document.createElement("h4");
   projectDescription.className = "title is-4";
-  projectDescription.innerText = description;
-  detailsContainer.appendChild(projectDescription);
+  projectDescription.innerText = `Description: ${description}`;
+  contentWrapper.appendChild(projectDescription);
   const addBtn = document.createElement("button");
   addBtn.className = "button add-task-btn";
   addBtn.innerText = "Add Task";
-  detailsContainer.appendChild(addBtn);
+  contentWrapper.appendChild(addBtn);
 
-  const contentWrapper = document.querySelector(".project-details-wrapper");
-  contentWrapper.appendChild(detailsContainer);
+  // const contentWrapper = document.querySelector(".project-details-wrapper");
+  // contentWrapper.appendChild(detailsContainer);
 
   const addTaskBtn = document.querySelector(".add-task-btn");
   addTaskBtn.addEventListener("click", openTaskForm);
