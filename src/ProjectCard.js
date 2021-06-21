@@ -2,7 +2,7 @@ import { populateDetailsContainer } from "./ProjectContent";
 
 function createProjectCard(projectName) {
   const projectCard = document.createElement("div");
-  projectCard.className = "card";
+  projectCard.className = "block card";
   const cardContentWrapper = document.createElement("div");
   cardContentWrapper.className = "card-content";
   projectCard.appendChild(cardContentWrapper);
