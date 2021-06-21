@@ -1,6 +1,6 @@
 function createCard(title, description) {
   const card = document.createElement("div");
-  card.className = "card";
+  card.className = "card todo-card";
   const cardHeader = document.createElement("header");
   cardHeader.className = "card-header";
   card.appendChild(cardHeader);

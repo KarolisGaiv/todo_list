@@ -20,7 +20,7 @@ function createDetailsContainer(name, description, dueDate) {
   contentWrapper.classList.add("box");
   const projectName = document.createElement("h3");
   projectName.className = "title is-3 project-name";
-  projectName.innerText = `Project Name: ${name}`;
+  projectName.innerText = name;
   contentWrapper.appendChild(projectName);
   const projectDescription = document.createElement("h4");
   projectDescription.className = "title is-4";
@@ -30,9 +30,6 @@ function createDetailsContainer(name, description, dueDate) {
   addBtn.className = "button add-task-btn";
   addBtn.innerText = "Add Task";
   contentWrapper.appendChild(addBtn);
-
-  // const contentWrapper = document.querySelector(".project-details-wrapper");
-  // contentWrapper.appendChild(detailsContainer);
 
   const addTaskBtn = document.querySelector(".add-task-btn");
   addTaskBtn.addEventListener("click", openTaskForm);
