@@ -18,8 +18,8 @@ function getProjectData(e) {
 function createDetailsContainer(name, description, dueDate) {
   const contentWrapper = document.querySelector(".project-details-wrapper");
   // Reset container if project is already open
-  if(contentWrapper.innerHTML) {
-    contentWrapper.innerHTML = ""
+  if (contentWrapper.innerHTML) {
+    contentWrapper.innerHTML = "";
   }
   contentWrapper.classList.add("box");
   const projectName = document.createElement("h3");
@@ -40,6 +40,11 @@ function createDetailsContainer(name, description, dueDate) {
 }
 
 function displayProjectTasks() {
+  const tasksContainer = document.querySelector(".project-tasks-wrapper");
+  // Reset tasks list container before displaying tasks
+  if (tasksContainer.innerHTML) {
+    tasksContainer.innerHTML = "";
+  }
   projectTasks.forEach((task) => {
     createCard(task.taskTitle, task.taskDescription);
   });

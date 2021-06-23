@@ -26,10 +26,10 @@ function createCard(title, description, dueDate, priority) {
   content.className = "block";
   content.innerText = `Description: ${description}`;
   cardContentWrapper.appendChild(content);
-  const priorityInfo = document.createElement("div")
-  priorityInfo.className = "block"
-  priorityInfo.innerText = `Priority: ${priority}`
-  cardContentWrapper.appendChild(priorityInfo)
+  const priorityInfo = document.createElement("div");
+  priorityInfo.className = "block";
+  priorityInfo.innerText = `Priority: ${priority}`;
+  cardContentWrapper.appendChild(priorityInfo);
   const cardFooter = document.createElement("footer");
   cardFooter.className = "card-footer is-hidden task-card-footer";
   card.appendChild(cardFooter);
@@ -47,7 +47,7 @@ function createCard(title, description, dueDate, priority) {
 
   expandBtn.addEventListener("click", expandCard);
   completeBtn.addEventListener("click", completeTask);
-  // deleteBtn.addEventListener("click", deleteTask)
+  deleteBtn.addEventListener("click", deleteTask);
 }
 
 function expandCard(e) {
@@ -64,15 +64,9 @@ function completeTask(e) {
   const taskIndex = projectData.projectTasks.findIndex(
     (task) => task.taskTitle === taskName
   );
-  const currentTask = projectData.projectTasks[taskIndex]
+  const currentTask = projectData.projectTasks[taskIndex];
 
-  const isComplete =
-    currentTask.isComplete === false ? true : false;
-
-  // const taskPriority =
-  //   projectData.projectTasks[taskIndex].taskPriority === "regular"
-  //     ? "urgent"
-  //     : "regular";
+  const isComplete = currentTask.isComplete === false ? true : false;
 
   const updatedTask = {
     ...currentTask,
@@ -89,19 +83,36 @@ function completeTask(e) {
   localStorage.setItem(projId, JSON.stringify(projectData));
 }
 
-// function deleteTask(e) {
-//   const projId = document.querySelector(".project-name").innerText;
-//   const projectData = JSON.parse(localStorage.getItem(projId));
-//   const projectTasks = projectData.projectTasks
-//   const taskName = e.target.parentElement.parentElement.firstChild.innerText;
-//   const taskIndex = projectTasks.findIndex(
-//     (task) => task.taskTitle === taskName
-//   );
+function deleteTask(e) {
+  const projId = document.querySelector(".project-name").innerText;
+  const projectData = JSON.parse(localStorage.getItem(projId));
+  let projectTasks = projectData.projectTasks;
+  const taskName = e.target.parentElement.parentElement.firstChild.innerText;
+  const taskIndex = projectTasks.findIndex(
+    (task) => task.taskTitle === taskName
+  );
+  const tasksContainer = document.querySelector(".project-tasks-wrapper");
 
-//   // const updatedTaskArray = projectTasks.splice(taskIndex, 1)
-//   // const updatedTaskArray = projectTasks.length > 1 ? projectTasks.splice(taskIndex, 1) : projectTasks.length === 0
-//   projectData.projectTasks = updatedTaskArray
-//   localStorage.setItem(projId, JSON.stringify(projectData))
-// }
+  const updatedTaskArray =
+    projectTasks.length > 1
+      ? projectTasks.splice(taskIndex, 1)
+      : (projectTasks.length = 0);
+  projectTasks = updatedTaskArray;
+  localStorage.setItem(projId, JSON.stringify(projectData));
+  // Reset task list container before updating project tasks
+  if (tasksContainer.innerHTML) {
+    tasksContainer.innerHTML = "";
+  }
+  displayProjectTasks();
+}
+
+function displayProjectTasks() {
+  const projId = document.querySelector(".project-name").innerText;
+  const projectData = JSON.parse(localStorage.getItem(projId));
+  const projectTasks = projectData.projectTasks;
+  projectTasks.forEach((task) => {
+    createCard(task.taskTitle, task.taskDescription);
+  });
+}
 
 export { createCard };
