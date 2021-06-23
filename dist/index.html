@@ -1,99 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <title>Document</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" />
-</head>
+  <body>
+    <header class="title is-1 header">
+      <h1>Track Your Tasks!</h1>
+    </header>
+    <div class="modal project-form">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="field">
+          <label class="label has-text-info">Project Name</label>
+          <div class="control">
+            <input
+              class="input project-name-field"
+              type="text"
+              placeholder="e.g Super Secret Project"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-info">Description</label>
+          <div class="control">
+            <textarea
+              class="textarea project-description-field"
+              placeholder="e.g Not gonna tell"
+            ></textarea>
+          </div>
+        </div>
+        <input
+          type="submit"
+          class="button is-success is-light add-project-btn"
+          value="Add Project"
+        />
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <div class="modal task-form">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="field">
+          <label class="label has-text-info">Task Name</label>
+          <div class="control">
+            <input
+              class="input task-name-field"
+              type="text"
+              placeholder="e.g Go hiking"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-info">Description</label>
+          <div class="control">
+            <textarea
+              class="textarea task-description-field"
+              placeholder="e.g Not gonna tell"
+              rows="3"
+            ></textarea>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-info">Priority</label>
+          <div class="select">
+            <select class="task-priority">
+              <option value="regular">Regular</option>
+              <option value="urgent">Urgent</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <input
+        type="submit"
+        class="button is-success is-light create-task"
+        value="Create Task"
+      />
+      <button
+        class="modal-close is-large close-task-form"
+        aria-label="close"
+      ></button>
+    </div>
+    <div class="columns content-wrapper">
+      <div class="column is-3">
+        <aside class="project-list-wrapper">
+          <div class="block">
+            <button class="button is-info is-rounded project-btn">
+              Add Project
+            </button>
+          </div>
+          <div class="container block">
+            <ul class="project-list"></ul>
+          </div>
+        </aside>
+      </div>
+      <div class="column is-9">
+        <section class="task-list-wrapper">
+          <div class="block">
+            <h2 class="title is-2 project-details-header">Tasks to Do</h2>
+          </div>
+          <div class="block container project-details-wrapper"></div>
+          <div class="block project-tasks-wrapper"></div>
+        </section>
+      </div>
+    </div>
 
-<body>
-  <header class="title is-1 header">
-    <h1>Track Your Tasks!</h1>
-  </header>
-  <div class="modal project-form">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="field">
-        <label class="label has-text-info">Project Name</label>
-        <div class="control">
-          <input class="input project-name-field" type="text" placeholder="e.g Super Secret Project" />
-        </div>
-      </div>
-      <div class="field">
-        <label class="label has-text-info">Description</label>
-        <div class="control">
-          <textarea class="textarea project-description-field" placeholder="e.g Not gonna tell"></textarea>
-        </div>
-      </div>
-      <input type="submit" class="button is-success is-light add-project-btn" value="Add Project" />
-    </div>
-    <button class="modal-close is-large" aria-label="close"></button>
-  </div>
-  <div class="modal task-form">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="field">
-        <label class="label has-text-info">Task Name</label>
-        <div class="control">
-          <input class="input task-name-field" type="text" placeholder="e.g Go hiking" />
-        </div>
-      </div>
-      <div class="field">
-        <label class="label has-text-info">Description</label>
-        <div class="control">
-          <textarea class="textarea task-description-field" placeholder="e.g Not gonna tell" rows="3"></textarea>
-        </div>
-      </div>
-      <div class="field">
-        <label class="label has-text-info">Due Date</label>
-        <div class="control">
-          <input class="input task-dueDate-field" type="date" />
-        </div>
-      </div>
-      <div class="field">
-        <label class="label has-text-info">Priority</label>
-        <div class="select">
-          <select class="task-priority">
-            <option value="regular">Regular</option>
-            <option value="urgent">Urgent</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <input type="submit" class="button is-success is-light create-task" value="Create Task" />
-    <button class="modal-close is-large close-task-form" aria-label="close"></button>
-  </div>
-  <div class="columns content-wrapper">
-    <div class="column is-3">
-      <aside class="project-list-wrapper">
-        <div class="block">
-          <button class="button is-info is-rounded project-btn">
-            Add Project
-          </button>
-        </div>
-        <div class="container block">
-          <ul class="project-list"></ul>
-        </div>
-      </aside>
-    </div>
-    <div class="column is-9">
-      <section class="task-list-wrapper">
-        <div class="block">
-          <h2 class="title is-2 project-details-header">Tasks to Do</h2>
-        </div>
-        <div class="block container project-details-wrapper">
-        </div>
-        <div class="block project-tasks-wrapper">
-        </div>
-      </section>
-    </div>
-  </div>
-
-  <script src="./bundle.js"></script>
-</body>
-
+    <script src="./bundle.js"></script>
+  </body>
 </html>

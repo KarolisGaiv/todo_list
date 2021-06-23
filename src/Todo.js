@@ -1,7 +1,6 @@
-const Todo = (title, description, dueDate, priority) => {
+const Todo = (title, description, priority) => {
   let taskTitle = title;
   let taskDescription = description;
-  let taskDueDate = dueDate;
   let taskPriority = priority;
   let isComplete = false;
   const projectId = document.querySelector(".project-name").innerText;
@@ -10,7 +9,6 @@ const Todo = (title, description, dueDate, priority) => {
     let task = {
       taskTitle,
       taskDescription,
-      taskDueDate,
       taskPriority,
       isComplete,
     };

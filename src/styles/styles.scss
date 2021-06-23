@@ -1,18 +1,18 @@
 @import "mixins.scss";
 
 // Colors website https://coolors.co/c9e4ca-87bba2-55828b-3b6064-364958
-$_tea-green: #C9E4CA;
+$_tea-green: #c9e4ca;
 $_eton-blue: #87bba2;
 $_steel-teal: #55828b;
 $_deep-space: #3b6064;
 $_charcoal: #364958;
-$_amethyst-smoke: #9A94BC;
-$_tree-poppy: #FB8B24;
-$_amaranth: #EF2D56;
-$_lily: #C19AB7;
-$_eastern-blue: #1B9AAA;
-$_green-haze: #04A777;
-$_pine-glade: #D0CD94;
+$_amethyst-smoke: #9a94bc;
+$_tree-poppy: #fb8b24;
+$_amaranth: #ef2d56;
+$_lily: #c19ab7;
+$_eastern-blue: #1b9aaa;
+$_green-haze: #04a777;
+$_pine-glade: #d0cd94;
 
 body {
   background-color: $_tea-green;
@@ -20,10 +20,6 @@ body {
 
 .header {
   text-align: center;
-}
-
-.content-wrapper {
-  height: 100vh;
 }
 
 .project-list-wrapper {
@@ -72,7 +68,6 @@ body {
   &.add-task-btn {
     background-color: $_eastern-blue;
   }
-
 }
 
 .project-details-header {

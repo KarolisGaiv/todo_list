@@ -6,7 +6,6 @@ const closeFormBtn = document.querySelector(".close-task-form");
 const createTaskBtn = document.querySelector(".create-task");
 const title = document.querySelector(".task-name-field");
 const description = document.querySelector(".task-description-field");
-const dueDate = document.querySelector(".task-dueDate-field");
 const priority = document.querySelector(".task-priority");
 
 closeFormBtn.addEventListener("click", closeTaskForm);
@@ -21,14 +20,9 @@ function closeTaskForm() {
 }
 
 function createTodo() {
-  const newTask = Todo(
-    title.value,
-    description.value,
-    dueDate.value,
-    priority.value
-  );
+  const newTask = Todo(title.value, description.value, priority.value);
   newTask.saveTaskToProject();
-  createCard(title.value, description.value, dueDate.value, priority.value);
+  createCard(title.value, description.value, priority.value);
   resetForm();
   closeTaskForm();
 }
@@ -36,7 +30,6 @@ function createTodo() {
 function resetForm() {
   title.value = "";
   description.value = "";
-  dueDate.value = "";
   priority.value = "regular";
 }
 

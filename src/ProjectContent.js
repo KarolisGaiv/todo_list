@@ -15,7 +15,7 @@ function getProjectData(e) {
   console.log(projectTasks);
 }
 
-function createDetailsContainer(name, description, dueDate) {
+function createDetailsContainer(name, description) {
   const contentWrapper = document.querySelector(".project-details-wrapper");
   // Reset container if project is already open
   if (contentWrapper.innerHTML) {

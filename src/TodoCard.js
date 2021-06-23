@@ -1,4 +1,4 @@
-function createCard(title, description, dueDate, priority) {
+function createCard(title, description, priority) {
   const card = document.createElement("div");
   card.className = "card todo-card";
   const cardHeader = document.createElement("header");
