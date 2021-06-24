@@ -30,7 +30,6 @@ function createTodo() {
 function resetForm() {
   title.value = "";
   description.value = "";
-  priority.value = "regular";
 }
 
 export { openTaskForm };
