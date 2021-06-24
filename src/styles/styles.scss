@@ -4,11 +4,10 @@
 $_tea-green: #c9e4ca;
 $_eton-blue: #87bba2;
 $_steel-teal: #55828b;
-$_deep-space: #3b6064;
-$_charcoal: #364958;
 $_amethyst-smoke: #9a94bc;
 $_tree-poppy: #fb8b24;
 $_amaranth: #ef2d56;
+$-red-urgent: #f219195c;
 $_lily: #c19ab7;
 $_eastern-blue: #1b9aaa;
 $_green-haze: #04a777;
@@ -87,9 +86,26 @@ body {
   margin: 5px;
 }
 
-.card-header,
-.todo-card-footer {
+.todo-card-footer,
+.card-header {
   background-color: $_pine-glade;
+
+  &.-urgent {
+    background-color: $-red-urgent;
+  }
+}
+
+.card-header-title {
+  &.-urgent {
+    color: red;
+  }
+}
+
+.priority-info {
+  &.-urgent {
+    color: red;
+    font-weight: bolder;
+  }
 }
 
 .complete-todo {

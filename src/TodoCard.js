@@ -27,7 +27,7 @@ function createCard(title, description, priority) {
   content.innerText = `Description: ${description}`;
   cardContentWrapper.appendChild(content);
   const priorityInfo = document.createElement("div");
-  priorityInfo.className = "block";
+  priorityInfo.className = "block priority-info";
   priorityInfo.innerText = `Priority: ${priority}`;
   cardContentWrapper.appendChild(priorityInfo);
   const cardFooter = document.createElement("footer");
@@ -48,6 +48,13 @@ function createCard(title, description, priority) {
   expandBtn.addEventListener("click", expandCard);
   completeBtn.addEventListener("click", completeTask);
   deleteBtn.addEventListener("click", deleteTask);
+
+  //Add styling to card if task is priority
+  if (priority === "urgent") {
+    headerTitle.classList.add("-urgent");
+    cardHeader.classList.add("-urgent");
+    priorityInfo.classList.add("-urgent");
+  }
 }
 
 function expandCard(e) {
@@ -111,7 +118,7 @@ function displayProjectTasks() {
   const projectData = JSON.parse(localStorage.getItem(projId));
   const projectTasks = projectData.projectTasks;
   projectTasks.forEach((task) => {
-    createCard(task.taskTitle, task.taskDescription);
+    createCard(task.taskTitle, task.taskDescription, task.taskPriority);
   });
 }
 
