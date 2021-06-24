@@ -12,7 +12,6 @@ function getProjectData(e) {
   projectDescription =
     JSON.parse(projectData).projectDetails.projectDescription;
   projectTasks = JSON.parse(projectData).projectTasks;
-  console.log(projectTasks);
 }
 
 function createDetailsContainer(name, description) {
