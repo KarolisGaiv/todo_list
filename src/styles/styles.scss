@@ -86,6 +86,15 @@ body {
   margin: 5px;
 }
 
-.card-header {
+.card-header,
+.todo-card-footer {
   background-color: $_pine-glade;
+}
+
+.complete-todo {
+  background-color: $_green-haze;
+}
+
+.delete-todo {
+  background-color: $_amaranth;
 }

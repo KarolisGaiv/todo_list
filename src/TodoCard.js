@@ -31,14 +31,14 @@ function createCard(title, description, priority) {
   priorityInfo.innerText = `Priority: ${priority}`;
   cardContentWrapper.appendChild(priorityInfo);
   const cardFooter = document.createElement("footer");
-  cardFooter.className = "card-footer is-hidden task-card-footer";
+  cardFooter.className = "card-footer is-hidden todo-card-footer";
   card.appendChild(cardFooter);
   const completeBtn = document.createElement("button");
   completeBtn.className = "button complete-todo";
   completeBtn.innerText = "Complete";
   cardFooter.appendChild(completeBtn);
   const deleteBtn = document.createElement("button");
-  deleteBtn.className = "button";
+  deleteBtn.className = "button delete-todo";
   deleteBtn.innerText = "Delete";
   cardFooter.appendChild(deleteBtn);
 
