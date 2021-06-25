@@ -88,6 +88,17 @@ function completeTask(e) {
 
   projectData.projectTasks = updatedProjectArray;
   localStorage.setItem(projId, JSON.stringify(projectData));
+
+  //Change task card design
+  const cardContent = document.querySelector(".task-card-content");
+  const cardHeaderContainer = document.querySelector(".card-header");
+  const cardTitle = document.querySelector(".card-header-title");
+  const priorityInfo = document.querySelector(".priority-info");
+  cardContent.classList.add("-complete");
+  cardHeaderContainer.classList.remove("-urgent");
+  cardHeaderContainer.classList.add("-complete");
+  cardTitle.classList.remove("-urgent");
+  priorityInfo.classList.remove("-urgent");
 }
 
 function deleteTask(e) {

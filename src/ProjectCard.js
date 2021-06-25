@@ -1,10 +1,12 @@
 import { populateDetailsContainer } from "./ProjectContent";
 
-function createProjectCard(projectName) {
+function createProjectCard(projectName, isComplete) {
   const projectCard = document.createElement("div");
   projectCard.className = "block card";
   const cardContentWrapper = document.createElement("div");
-  cardContentWrapper.className = "card-content";
+  cardContentWrapper.className = isComplete
+    ? "card-content -complete"
+    : "card-content";
   projectCard.appendChild(cardContentWrapper);
   const cardContent = document.createElement("h4");
   cardContent.className = "title is-4";
@@ -19,7 +21,7 @@ function createProjectCard(projectName) {
   cardFooter.appendChild(openBtn);
   const completeBtn = document.createElement("button");
   completeBtn.className = "button complete-proj-btn";
-  completeBtn.innerText = "Complete";
+  completeBtn.innerText = isComplete ? "Incomplete" : "Complete";
   cardFooter.appendChild(completeBtn);
   const deleteBtn = document.createElement("button");
   deleteBtn.className = "button delete-proj-btn";
@@ -29,24 +31,30 @@ function createProjectCard(projectName) {
   const projectList = document.querySelector(".project-list");
   projectList.appendChild(projectCard);
 
-  openBtn.addEventListener("click", populateDetailsContainer)
+  openBtn.addEventListener("click", populateDetailsContainer);
   deleteBtn.addEventListener("click", (e) => {
     deleteProject(e);
     const projectListContainer = document.querySelector(".project-list");
-//  Reset project list container before updating list when project is deleted
+    //  Reset project list container before updating list when project is deleted
     projectListContainer.innerHTML = "";
     displaySavedProjects();
-  })
+  });
   completeBtn.addEventListener("click", (e) => {
-    completeProject(e)
-  })
+    completeProject(e);
+    const projectListContainer = document.querySelector(".project-list");
+    //  Reset project list container before updating list when project is deleted
+    projectListContainer.innerHTML = "";
+    displaySavedProjects();
+  });
 }
 
 function displaySavedProjects() {
   let projectKeys = Object.keys(localStorage);
   for (let i = 0; i < projectKeys.length; i++) {
     const projectName = projectKeys[i];
-    createProjectCard(projectName);
+    const projectData = JSON.parse(localStorage.getItem(projectName));
+    const projectStatus = projectData.projectDetails.isComplete;
+    createProjectCard(projectName, projectStatus);
   }
 }
 
@@ -58,11 +66,16 @@ function deleteProject(e) {
 function completeProject(e) {
   const projId = e.target.parentElement.parentElement.firstChild.innerText;
   const selectedProject = JSON.parse(localStorage.getItem(projId));
+  const projectCard = document.querySelector(".card-content");
   selectedProject.projectDetails.isComplete =
     !selectedProject.projectDetails.isComplete;
-  e.target.parentElement.parentElement.firstChild.style.textDecoration =
-    "line-through";
+  projectCard.classList.add("-complete");
   localStorage.setItem(projId, JSON.stringify(selectedProject));
 }
 
-export { createProjectCard, deleteProject, completeProject, displaySavedProjects };
+export {
+  createProjectCard,
+  deleteProject,
+  completeProject,
+  displaySavedProjects,
+};

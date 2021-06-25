@@ -12,6 +12,7 @@ $_lily: #c19ab7;
 $_eastern-blue: #1b9aaa;
 $_green-haze: #04a777;
 $_pine-glade: #d0cd94;
+$_atlantis: #3cbd2ae0;
 
 body {
   background-color: $_tea-green;
@@ -43,11 +44,16 @@ body {
 
 .card-content {
   background-color: $_amethyst-smoke;
+
+  &.-complete {
+    background-color: $_atlantis;
+  }
 }
 
 .card-footer {
   background-color: $_amethyst-smoke;
   border-top: 0;
+  justify-content: space-around;
 }
 
 .button {
@@ -84,6 +90,10 @@ body {
 
 .todo-card {
   margin: 5px;
+
+  &.-complete {
+    background-color: green;
+  }
 }
 
 .todo-card-footer,
@@ -93,11 +103,21 @@ body {
   &.-urgent {
     background-color: $-red-urgent;
   }
+
+  &.-complete {
+    background-color: #1ab71a;
+  }
 }
 
 .card-header-title {
   &.-urgent {
     color: red;
+  }
+}
+
+.task-card-content {
+  &.-complete {
+    background-color: #82ce6d;
   }
 }
 
