@@ -13,6 +13,8 @@ $_eastern-blue: #1b9aaa;
 $_green-haze: #04a777;
 $_pine-glade: #d0cd94;
 $_atlantis: #3cbd2ae0;
+$_mantis: #82ce6d;
+$_la-palma: #1ab71a;
 
 body {
   background-color: $_tea-green;
@@ -104,7 +106,7 @@ body {
   }
 
   &.-complete {
-    background-color: #1ab71a;
+    background-color: $_la-palma;
   }
 }
 
@@ -116,7 +118,7 @@ body {
 
 .task-card-content {
   &.-complete {
-    background-color: #82ce6d;
+    background-color: $_mantis;
   }
 }
 
