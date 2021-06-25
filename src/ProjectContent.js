@@ -45,7 +45,12 @@ function displayProjectTasks() {
     tasksContainer.innerHTML = "";
   }
   projectTasks.forEach((task) => {
-    createCard(task.taskTitle, task.taskDescription, task.taskPriority);
+    createCard(
+      task.taskTitle,
+      task.taskDescription,
+      task.taskPriority,
+      task.isComplete
+    );
   });
 }
 

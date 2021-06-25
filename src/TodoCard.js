@@ -1,4 +1,4 @@
-function createCard(title, description, priority) {
+function createCard(title, description, priority, isComplete) {
   const card = document.createElement("div");
   card.className = "card todo-card";
   const cardHeader = document.createElement("header");
@@ -55,6 +55,19 @@ function createCard(title, description, priority) {
     cardHeader.classList.add("-urgent");
     priorityInfo.classList.add("-urgent");
   }
+
+  //Add styling to card if task is completed
+  if (isComplete) {
+    cardContentWrapper.classList.add("-complete");
+    cardHeader.classList.add("-complete");
+    headerTitle.classList.add("-complete");
+    // Remove urgent task styling if task is completed
+    if (priority === "urgent") {
+      headerTitle.classList.toggle("-urgent");
+      cardHeader.classList.toggle("-urgent");
+      priorityInfo.classList.toggle("-urgent");
+    }
+  }
 }
 
 function expandCard(e) {
@@ -65,6 +78,7 @@ function expandCard(e) {
 }
 
 function completeTask(e) {
+  const tasksContainer = document.querySelector(".project-tasks-wrapper");
   const projId = document.querySelector(".project-name").innerText;
   const projectData = JSON.parse(localStorage.getItem(projId));
   const taskName = e.target.parentElement.parentElement.firstChild.innerText;
@@ -88,17 +102,10 @@ function completeTask(e) {
 
   projectData.projectTasks = updatedProjectArray;
   localStorage.setItem(projId, JSON.stringify(projectData));
-
-  //Change task card design
-  const cardContent = document.querySelector(".task-card-content");
-  const cardHeaderContainer = document.querySelector(".card-header");
-  const cardTitle = document.querySelector(".card-header-title");
-  const priorityInfo = document.querySelector(".priority-info");
-  cardContent.classList.add("-complete");
-  cardHeaderContainer.classList.remove("-urgent");
-  cardHeaderContainer.classList.add("-complete");
-  cardTitle.classList.remove("-urgent");
-  priorityInfo.classList.remove("-urgent");
+  if (tasksContainer.innerHTML) {
+    tasksContainer.innerHTML = "";
+  }
+  displayProjectTasks();
 }
 
 function deleteTask(e) {
@@ -129,7 +136,12 @@ function displayProjectTasks() {
   const projectData = JSON.parse(localStorage.getItem(projId));
   const projectTasks = projectData.projectTasks;
   projectTasks.forEach((task) => {
-    createCard(task.taskTitle, task.taskDescription, task.taskPriority);
+    createCard(
+      task.taskTitle,
+      task.taskDescription,
+      task.taskPriority,
+      task.isComplete
+    );
   });
 }
 
